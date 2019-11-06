@@ -23,9 +23,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'rspec'
-
 gem 'pry'
+
+%w[rspec rspec-core rspec-expectations rspec-mocks rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
+
 
 gem 'devise', '~> 4.7'
 # Use Redis adapter to run Action Cable in production
