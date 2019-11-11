@@ -20,17 +20,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav nav-item mr-auto">
-        <li class="nav-link"><%= link_to "Home", home_path,:class => 'btn', :style => 'color:white' %></li>
+        <li class="nav-link"><%= link_to "Home", index_path,:class => 'btn', :style => 'color:white' %></li>
         <li class="nav-link"> <%= link_to "Add Post", new_post_path ,:class => 'btn', :style => 'color:white'%></li>
         <li class="nav-link"> <%= link_to "About Us", about_path ,:class => 'btn', :style => 'color:white' %></li>
       </ul>
       <form class="form-inline mt-2 mt-md-0 ">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <% if !current_user %>
+          <%= link_to 'Sign Up', new_user_registration_path, :class => 'btn', :style => 'color:white' %>
+          <%= link_to 'Sign in', new_user_session_path ,:class => 'btn', :style => 'color:white' %>
+        <% else %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete ,:class => 'btn', :style => 'color:white' %>        
+        <% end %>
       </form>
     </div>
   </nav>
   <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
   </body>
