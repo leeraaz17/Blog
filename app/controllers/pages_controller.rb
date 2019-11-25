@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def index
-
+    @blogs = Post.all
 	end
 	
 	def about

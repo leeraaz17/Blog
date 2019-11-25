@@ -29,12 +29,16 @@ gem 'pry'
   gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
 end
 
+gem "trix-rails", "~> 2.2", require: "trix"
 
 gem 'devise', '~> 4.7'
 
 gem 'haml'
 
 gem 'bootstrap'
+
+gem 'carrierwave'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

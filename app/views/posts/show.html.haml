@@ -1,0 +1,33 @@
+%h2= @post.title
+%p
+  = @post.body.html_safe
+%h4
+  Article by :  #{@post.user.username}
+- if current_user
+  %hr/
+  = link_to "Edit", edit_post_path(@post), :class => 'btn btn-outline-dark btn-sm'
+  = link_to "Delete", post_path(@post),       |
+    method: :delete,                          |
+    data: {confirm: 'Are you sure?'},         |
+    :class => 'btn btn-outline-danger btn-sm' |
+%hr/
+%h3 Comments
+- @post.comments.each do |comment|
+  .card.col-sm-6
+    .card-body
+      %p
+        %strong
+          = comment.username
+        \: #{comment.body}
+        \#{link_to "[X]", [comment.post, comment],  method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-outline-danger btn-sm'}
+%hr/
+%h4 Add Comments
+= form_for([@post, @post.comments.build]) do |f|
+  %p
+    = f.label :username
+    = f.text_field(:username, {:class => 'form-control col-md-6'})
+  %p
+    = f.label :body
+    = f.text_area(:body, {:class	=> 'form-control col-sm-6'})
+  %p
+    = f.submit ,:class => 'btn btn-outline-info'

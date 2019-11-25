@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require trix
+
 
 //= require "js/jquery-3.3.1.min.js"
 //= require "js/jquery-migrate-3.0.1.min.js"

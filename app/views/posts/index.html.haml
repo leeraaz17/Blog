@@ -1,0 +1,10 @@
+%h1
+  Blog Posts
+  %h1
+    - @posts.each do |post|
+      .card.bg-light{:style => "margin-bottom: 5px"}
+        .card-body
+          %h4= post.title
+          %p
+            = post.body
+          = link_to 'Read More...', post_path(post), :class => 'btn btn-outline-dark'
