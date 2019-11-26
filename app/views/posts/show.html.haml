@@ -20,6 +20,7 @@
         .col-md-12.col-lg-8.main-content
           .post-content-body
             %p
+            - if @post.body.present?
               = @post.body.html_safe
           .pt-5
             %p

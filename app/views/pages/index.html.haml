@@ -4,7 +4,7 @@
     .row.align-items-stretch.retro-layout-2
       - @blogs.each do |blog|
         .col-md-4
-          %a.h-entry.v-height.gradient{:href => "single.html", :style => "background-image: url(#{ blog_image(blog) })"}
+          %a.h-entry.v-height.gradient{:href => "/posts/#{blog.id}", :style => "background-image: url(#{ blog_image(blog) })"}
             .text
               %h2
                 = blog.title
@@ -41,12 +41,12 @@
       -latest_six_blog.each do |blog|
         .col-lg-4.mb-4
           .entry2
-            %a{:href => "single.html"}
+            %a{:href => "/posts/#{blog.id}"}
               %img.img-fluid.rounded{:alt => "Image", :src => blog_image(blog)}/
             .excerpt
               %span.post-category.text-white.bg-secondary.mb-3 Politics
               %h2
-                %a{:href => "single.html"}
+                %a{:href => "/posts/#{blog.id}"}
                   = blog.title
               .post-meta.align-items-center.text-left.clearfix
                 %figure.author-figure.mb-0.mr-3.float-left
@@ -57,9 +57,9 @@
                     = blog.user.username
                 %span  -  July 19, 2019
               %p 
-                = raw(blog.body)
+                = blog.body.html_safe if blog.body.present?
               %p
-                %a{:href => "#"} Read More
+                %a{:href => "/posts/#{blog.id}"} Read More
     .row.text-center.pt-5.border-top
       .col-md-12
         .custom-pagination
