@@ -15,6 +15,9 @@
       %p.alert.alert-success= notice
     - if alert
       %p.alert.alert-danger= alert
+    = render partial: "admin/pages/shared/navbar"
+    = render partial: "admin/pages/shared/sidebar"
+
     = yield
     %footer
-      .container
+      = render partial: "admin/pages/shared/footer"

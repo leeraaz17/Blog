@@ -16,7 +16,8 @@ assets = [
   "admin/jquery-easing/*.js",
   "admin/jquery-easing/jquery.easing.js",
   "admin/js/*.js",
-  "admin/js/demo/*.js"
+  "admin/js/demo/*.js",
+  "admin/js/demo/datatables-demo.js"
 ]
 Rails.application.config.assets.precompile += assets
 
