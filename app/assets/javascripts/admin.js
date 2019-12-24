@@ -1,4 +1,8 @@
 
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require trix
 //= require "admin/jquery/jquery.min.js"
 //= require "admin/bootstrap/js/bootstrap.bundle.min.js"
 //= require "admin/jquery-easing/jquery.easing.min.js"
